@@ -1,0 +1,15 @@
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\App.g.cs
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries_MarkupCompile.cache
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries_MarkupCompile.lref
+C:\Users\Admin\source\repos\Football_Match_Summaries\bin\Debug\Football_Match_Summaries.exe.config
+C:\Users\Admin\source\repos\Football_Match_Summaries\bin\Debug\Football_Match_Summaries.exe
+C:\Users\Admin\source\repos\Football_Match_Summaries\bin\Debug\Football_Match_Summaries.pdb
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\App.baml
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\MainWindow.baml
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.g.resources
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.Properties.Resources.resources
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.exe
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.pdb
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.csprojAssemblyReference.cache
