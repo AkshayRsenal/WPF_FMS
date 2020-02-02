@@ -53,5 +53,10 @@ namespace Football_Match_Summaries
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void Match_Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
