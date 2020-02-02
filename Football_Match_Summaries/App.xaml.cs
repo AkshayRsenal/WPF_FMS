@@ -14,6 +14,8 @@ namespace Football_Match_Summaries
     /// </summary>
     public partial class App : Application
     {
+        public static ObservableCollection<FootMatches> _matchDetails;
+
         //public static ObservableCollection<Member> _members;
 
         /*private ObservableCollection<Member> GenerateMembers(int cnt)
@@ -28,20 +30,47 @@ namespace Football_Match_Summaries
             return obvlist;
         }*/
 
-        private string _firstName = "Akshay";   
-        public string FirstName
-        {
-            get
-            {
-                return _firstName;
-            }
-            set
-            {
-                /* _firstName = value;
-                 NotifyOfPropertyChange(() => FirstName);*/
-                _firstName = value;
+        /*        private string _firstName = "Akshay";   
+                public string FirstName
+                {
+                    get
+                    {
+                        return _firstName;
+                    }
+                    set
+                    {
+                        *//* _firstName = value;
+                         NotifyOfPropertyChange(() => FirstName);*//*
+                        _firstName = value;
 
+                    }
+                }*/
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            //Get the needed data
+
+            //_members = GenerateMembers(20);
+
+            //_members = MyStorage.ReadXML<ObservableCollection<Member>>("ClubMembers.xml");
+
+            if (_matchDetails == null)
+            {
+                _matchDetails = new ObservableCollection<FootMatches>();
             }
+
+           
+
+
+        }
+
+        private ObservableCollection<FootMatches> Add_Match(string[] cnt)
+        {
+            var obvMatch = new ObservableCollection<FootMatches>();
+            //obvMatch.Add(new FootMatches { FirstName = "fn" + i, LastName = "ln" + i });
+           
+
+            return obvMatch;
         }
     }
 }

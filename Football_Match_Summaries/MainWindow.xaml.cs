@@ -27,6 +27,11 @@ namespace Football_Match_Summaries
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // FootballMatchStats.ItemsSource = App._members;
+        }
+
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             BoundNumber = 0;
@@ -57,6 +62,26 @@ namespace Football_Match_Summaries
         private void Match_Save_Click(object sender, RoutedEventArgs e)
         {
 
+            string team1 = t1ComboBox.SelectedValue.ToString();
+            string team2 = t2ComboBox.SelectedValue.ToString();
+            DateTime? selectedDate = matchDate.SelectedDate;
+            /*if (selectedDate.HasValue)
+            {
+                string newMatchDate = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }*/
+            string newMatchDate = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+
+            string pitchType = comboBoxpitch.SelectedValue.ToString();
+
+            //string[] matchDetails = { team1, team2, newMatchDate, pitchType };
+
+            var fixtureDetails = new FootMatches { Team1 = team1, Team2 = team2, MatchDate = newMatchDate, typeOfPitch = pitchType };
+
+            App._matchDetails.Add() ;
+
+            /*var mem = new FootMatches { FirstName = "Please Edit", LastName = "Please Edit" };*/
         }
+
+
     }
 }
