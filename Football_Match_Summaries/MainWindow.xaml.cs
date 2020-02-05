@@ -19,7 +19,7 @@ namespace Football_Match_Summaries
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : INotifyPropertyChanged
+    public partial class MainWindow : Window /*INotifyPropertyChanged*/
     {
         public MainWindow()
         {
@@ -32,7 +32,7 @@ namespace Football_Match_Summaries
             // FootballMatchStats.ItemsSource = App._members;
         }
 
-        private void Reset_Click(object sender, RoutedEventArgs e)
+        /*private void Reset_Click(object sender, RoutedEventArgs e)
         {
             BoundNumber = 0;
 
@@ -57,7 +57,7 @@ namespace Football_Match_Summaries
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }*/
 
         private void Match_Save_Click(object sender, RoutedEventArgs e)
         {
@@ -73,13 +73,25 @@ namespace Football_Match_Summaries
 
             string pitchType = comboBoxpitch.SelectedValue.ToString();
 
-            //string[] matchDetails = { team1, team2, newMatchDate, pitchType };
+            var detailsMatch = new Dictionary<string, string>();
+
+            detailsMatch.Add("Team1", team1);
+            detailsMatch.Add("Team2", team2);
+            detailsMatch.Add("MatchDate", newMatchDate);
+            detailsMatch.Add("typeOfPitch", pitchType);
+
+            /*var list = detailsMatch.Select(p => new Dictionary<string, string>() { { p.Key, p.Value } });*/
+
+            string[] matchDetails = { team1, team2, newMatchDate, pitchType };
 
             var fixtureDetails = new FootMatches { Team1 = team1, Team2 = team2, MatchDate = newMatchDate, typeOfPitch = pitchType };
-
-            App._matchDetails.Add() ;
-
+            App._matchDetails.Add(fixtureDetails);
             /*var mem = new FootMatches { FirstName = "Please Edit", LastName = "Please Edit" };*/
+
+            FootMatches appObj = new FootMatches();
+            /*string asd =*/ appObj.Add_Match(detailsMatch);
+
+
         }
 
 

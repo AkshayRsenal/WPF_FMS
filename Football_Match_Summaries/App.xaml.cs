@@ -52,7 +52,7 @@ namespace Football_Match_Summaries
 
             //_members = GenerateMembers(20);
 
-            //_members = MyStorage.ReadXML<ObservableCollection<Member>>("ClubMembers.xml");
+            _matchDetails = ClassXML.ReadXML<ObservableCollection<FootMatches>>("Football_Match_Details.xml");
 
             if (_matchDetails == null)
             {
@@ -64,13 +64,12 @@ namespace Football_Match_Summaries
 
         }
 
-        private ObservableCollection<FootMatches> Add_Match(string[] cnt)
+       /* public ObservableCollection<FootMatches> Add_Match(string[] _detailsMatch)
         {
             var obvMatch = new ObservableCollection<FootMatches>();
             //obvMatch.Add(new FootMatches { FirstName = "fn" + i, LastName = "ln" + i });
-           
 
             return obvMatch;
-        }
+        }*/
     }
 }
