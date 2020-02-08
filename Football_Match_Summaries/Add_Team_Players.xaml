@@ -1,0 +1,395 @@
+﻿<Window x:Class="Football_Match_Summaries.Add_Team_Players" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Football_Match_Summaries"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" Title="Add_Team_Players" Height="450" Width="800">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,.5">
+            <GradientStop Offset="0" Color="LightSteelBlue"  />
+            <GradientStop Offset="1" Color="LightGreen" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid  Margin="0,0,0,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <!-- <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" /> -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="105" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+            <!-- <ListBox Width="70">
+                        <ListBoxItem>
+
+                            <StackPanel>
+                                <TextBox x:Name="tbox_in_lbox_date" Text="{Binding date}" Foreground="Aqua" Width="50" />
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Content="Team 1" />
+                        <ListBoxItem Content="Team 2"/>
+                    </ListBox>
+                    -->
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+
+
+                </Grid.ColumnDefinitions>
+                <Label Content="ADD A TEAM" FontSize="15" FontWeight="Bold" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="0,-80,0,0"  />
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <!--<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,-120,10,0">
+                    <Label Content="Team Name" VerticalAlignment="Center" Width="83" Margin="-0,1,0,13" />
+                </StackPanel>-->
+                <!--<StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,-150,10,0">
+
+                    <TextBlock Text="" Height="26" Margin="0,13,0,0" VerticalAlignment="Center" Width="215" Background="White" />
+
+                </StackPanel>-->
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+                    <!--<Button Grid.Column="1" Click="Match_Save_Click" Height= "40" Width="110" FontWeight="DemiBold" Content="SAVE MATCH" />-->
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="-0,-100,0,0">
+            <Grid Margin="0,-62,0,-129">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="257*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="191*"/>
+                    <ColumnDefinition Width="436*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="ADD PLAYERS" VerticalAlignment="Center" Width="385" Margin="0,0,0,117" Height="226" />
+                </StackPanel>
+                <StackPanel Margin="43,24,393,29" Orientation="Vertical" Grid.ColumnSpan="3" Grid.Row="1">
+                    <TextBlock TextWrapping="Wrap" Text="Enter text to filter" FontSize="10" Foreground="Black" ToolTip="Enter text to filter according to First Name" />
+                    <StackPanel Margin="0,0,16.2,0" Orientation="Horizontal">
+                        <TextBox x:Name="Tbx_filter" Height="23" TextWrapping="Wrap"  Margin="0,0,5,0" Width="152"/>
+                        <!--TextChanged=""-->
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding ElementName=Lbx_members, Path=Items.Count}" Width="33"/>
+                    </StackPanel>
+                    <ListBox x:Name="Lbx_members" 
+                HorizontalAlignment="Left" 
+                Height="110" VerticalAlignment="Top" 
+                Width="191">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation ="Horizontal" 
+                            Margin="0,3,0,3">
+                                    <TextBlock Text="{Binding firstName}" 
+                                Foreground="Green" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding lastName}" 
+                                Margin="3,0,0,0" FontWeight="Bold"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+
+                </StackPanel>
+                <StackPanel Margin="38,0" Orientation="Horizontal" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <Button x:Name="Btn_Add" Content="+" FontSize="16" Width="45"  Margin="5,229,0.4,140"/>
+                    <Button x:Name="Btn_Del" Content="-" FontSize="16" Width="50"  Margin="5,229,0.4,140" />
+                    <!--Click=""-->
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="180" Margin="65,94,0,-58"
+                    DataContext="{Binding ElementName=Lbx_members, Path=SelectedItem}" Grid.Column="2" Grid.Row="1">
+                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                        <TextBlock TextWrapping="Wrap" Text="Team Name" Width="65" HorizontalAlignment="Left" Margin="0,0,-0.4,0"/>
+                        <TextBox Text="{Binding firstName}" Height="23" TextWrapping="Wrap" Width="99" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                        <TextBlock TextWrapping="Wrap" Text="First Name" Width="65" HorizontalAlignment="Left" Margin="0,0,-0.4,0"/>
+                        <TextBox Text="{Binding firstName}" Height="23" TextWrapping="Wrap" Width="99" Margin="5,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                        <TextBlock TextWrapping="Wrap" Text="Last Name" Width="65" HorizontalAlignment="Left" Margin="0,0,-0.4,0"/>
+                        <TextBox Text="{Binding lastName}" Height="23" TextWrapping="Wrap" Width="98" Margin="5,0,0,0"/>
+                    </StackPanel>
+
+
+                </StackPanel>
+
+            </Grid>
+
+        </StackPanel>
+
+        <!-- <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB334oxpitch" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch2" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch3" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch4" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch5" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch6" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch7" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch8" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+
+                    <ComboBox x:Name="comboB34oxpitch9" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="   Select pitch type   ">
+                        <sys:String>Full Pitch</sys:String>
+                        <sys:String>Half Pitch</sys:String>
+                        <sys:String>Professional Pitch</sys:String>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Label Content="" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                    <Button Grid.Column="1" Click="Match_Save_Click" Height="40" Width="110" FontWeight="DemiBold" Content="SAVE MATCH" />
+
+                </StackPanel>
+            </Grid>
+        </StackPanel> -->
+
+    </Grid>
+
+</Window>

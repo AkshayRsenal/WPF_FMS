@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ArrayOfFootMatches xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FootMatches>
+    <Team1>Team X</Team1>
+    <Team2>Team B</Team2>
+    <MatchDate>11.02.2020</MatchDate>
+    <typeOfPitch>Professional Pitch</typeOfPitch>
+  </FootMatches>
+  <FootMatches>
+    <Team1>Team P</Team1>
+    <Team2>Team Y</Team2>
+    <MatchDate>12.02.2020</MatchDate>
+    <typeOfPitch>Half Pitch</typeOfPitch>
+  </FootMatches>
+  <FootMatches>
+    <Team1>Team X</Team1>
+    <Team2>Team B</Team2>
+    <MatchDate>14.02.2020</MatchDate>
+    <typeOfPitch>Professional Pitch</typeOfPitch>
+  </FootMatches>
+  <FootMatches>
+    <Team1>Team X</Team1>
+    <Team2>Team Q</Team2>
+    <MatchDate>21.02.2020</MatchDate>
+    <typeOfPitch>Full Pitch</typeOfPitch>
+  </FootMatches>
+  <FootMatches>
+    <Team1>Team Porto</Team1>
+    <Team2>Team Yale</Team2>
+    <MatchDate>14.02.2020</MatchDate>
+    <typeOfPitch>Professional Pitch</typeOfPitch>
+  </FootMatches>
+  <FootMatches>
+    <Team1>Team Arsenal</Team1>
+    <Team2>Team Bayern</Team2>
+    <MatchDate>14.02.2020</MatchDate>
+    <typeOfPitch>Half Pitch</typeOfPitch>
+    <Referee>Refoo</Referee>
+  </FootMatches>
+  <FootMatches>
+    <Team1>Team Porto</Team1>
+    <Team2>Team Bayern</Team2>
+    <MatchDate>08.02.2020</MatchDate>
+    <typeOfPitch>Professional Pitch</typeOfPitch>
+    <Referee>Any Referee</Referee>
+  </FootMatches>
+</ArrayOfFootMatches>

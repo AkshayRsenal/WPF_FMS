@@ -15,6 +15,7 @@ namespace Football_Match_Summaries
         public string Team2{ get; set; }
         public string MatchDate{ get; set; }
         public string typeOfPitch{ get; set; }
+        public string Referee { get;  set; }
 
         /*public string Add_Match(string[] _detailsMatch)
         {
@@ -26,39 +27,39 @@ namespace Football_Match_Summaries
                 *//* MessageBox.Show("Please " + _detailsMatch["Team1"]);
                  MessageBox.Show("Please " + _detailsMatch["typeOfPitch"]);
                  MessageBox.Show("Please " + _detailsMatch["MatchDate"]); */
-                /* var Team1 = _detailsMatch["Team1"];
-                 var Team2 = _detailsMatch["Team2"];*/
-                /*obvMatch.Add(_detailsMatch["Team2"]);*/
-                /*ClassXML.WriteXml<Dictionary<string, string>>(_detailsMatch, "Football_Match_Details.xml");*//*
-                ClassXML.WriteXml<string[]>(_detailsMatch, "Football_Match_Details.xml");
+        /* var Team1 = _detailsMatch["Team1"];
+         var Team2 = _detailsMatch["Team2"];*/
+        /*obvMatch.Add(_detailsMatch["Team2"]);*/
+        /*ClassXML.WriteXml<Dictionary<string, string>>(_detailsMatch, "Football_Match_Details.xml");*//*
+        ClassXML.WriteXml<string[]>(_detailsMatch, "Football_Match_Details.xml");
 
 
-            }
+    }
 
-            return "Msg";
-        }*/
+    return "Msg";
+}*/
 
         public ObservableCollection<FootMatches> Add_Match(Dictionary<string, string> _detailsMatch)
         {
-            var obvMatch = new ObservableCollection<FootMatches>();
+            /*var obvMatch = new ObservableCollection<FootMatches>();*/
             //obvMatch.Add(new FootMatches { FirstName = "fn" + i, LastName = "ln" + i });
             if (_detailsMatch != null)
             {
                 /*MessageBox.Show("Please " + _detailsMatch[2]);*/
-                MessageBox.Show("Please " + _detailsMatch["Team1"]);
-                MessageBox.Show("Please " + _detailsMatch["typeOfPitch"]);
-                MessageBox.Show("Please " + _detailsMatch["MatchDate"]);
+                
                 var team_one = _detailsMatch["Team1"];
                 var team_two = _detailsMatch["Team2"];
-                
-                obvMatch.Add(new FootMatches { Team1 = _detailsMatch["Team1"] , Team2= _detailsMatch["Team2"], MatchDate = _detailsMatch["MatchDate"], typeOfPitch = _detailsMatch["typeOfPitch"] });
+
+                App._matchDetails.Add(new FootMatches { Team1 = _detailsMatch["Team1"] , Team2= _detailsMatch["Team2"], MatchDate = _detailsMatch["MatchDate"], typeOfPitch = _detailsMatch["typeOfPitch"], Referee = _detailsMatch["Referee"] });
                 /*ClassXML.WriteXml<Dictionary<string, string>>(_detailsMatch, "Football_Match_Details.xml");*/
-                ClassXML.WriteXml<ObservableCollection<FootMatches>>(obvMatch, "Football_Match_Details.xml");
+                ClassXML.WriteXml<ObservableCollection<FootMatches>>(App._matchDetails, "Football_Match_Details.xml");
+                MessageBox.Show("Match Details Saved");
+
 
 
             }
 
-            return obvMatch;
+            return App._matchDetails;
         }
 /*
         public string Add_Match(Dictionary<string, string> _detailsMatch)
@@ -82,14 +83,6 @@ namespace Football_Match_Summaries
         }
  */
  
-        /*internal string Add_Match(IEnumerable<Dictionary<string, string>> list)
-        {
-            throw new NotImplementedException();
-        }*/
-
-        /*internal string Add_Match(Dictionary<string, string> detailsMatch)
-        {
-            throw new NotImplementedException();
-        }*/
+        
     }
 }

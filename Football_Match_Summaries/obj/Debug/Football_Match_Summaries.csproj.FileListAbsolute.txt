@@ -12,4 +12,6 @@ C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Su
 C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.csproj.GenerateResource.cache
 C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.exe
 C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.pdb
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Add_Team_Players.g.cs
+C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Add_Team_Players.baml
 C:\Users\Admin\source\repos\Football_Match_Summaries\obj\Debug\Football_Match_Summaries.csprojAssemblyReference.cache

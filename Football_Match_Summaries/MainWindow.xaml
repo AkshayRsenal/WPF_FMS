@@ -1,82 +1,96 @@
-﻿<Window x:Class="Football_Match_Summaries.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Football_Match_Summaries" xmlns:Custom="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" Title="MainWindow-ADD A MATCH" Height="450" Width="800"
-    Loaded="Window_Loaded">
-    <!-- <Grid> -->
-    <!-- <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label x:Name="label" Content="SELECT TEAMS" HorizontalAlignment="Left" Margin="54,25,0,0" VerticalAlignment="Stretch" RenderTransformOrigin="-5,-0.808" Width="92" Height="28"/>
-                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="76" Margin="10,27,0,0" VerticalAlignment="Top" Width="149">
-                    <ListBox.ItemTemplate>
+﻿<Window x:Class="Football_Match_Summaries.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Football_Match_Summaries" xmlns:Custom="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:sys="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" Title="Football Stats" Height="450" Width="800" Loaded="Window_Loaded">
 
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBox x:Name="tbox_in_lbox_date" Text="{Binding date}" Foreground="Aqua"/>
+    <StackPanel>
+        <Grid Margin="0" Background="LightSteelBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                    <ListBoxItem Content="Team 1"/>
-                    <ListBoxItem Content="Team 2"/>
-                </ListBox>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                <Label Content="FOOTBALL STATS" FontSize="20" FontWeight="Bold" Width="224" />
+
             </StackPanel>
-            <StackPanel Margin="10">
-                <ComboBox>
-                    <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">ComboBox Item #2</ComboBoxItem>
-                    <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
-                </ComboBox>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Orientation="Horizontal">
+                <Label Content="MENU" FontSize="10" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="Azure" Width="90" Background="DarkGreen" Margin="5,0,0,0" />
+
             </StackPanel>
-            <Border BorderBrush="Black" BorderThickness="1" Height="100"/>
-        </StackPanel>
-       -->
-    <!-- <Grid.RowDefinitions>
-            <RowDefinition ></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
+        </Grid>
+        <!--<StackPanel Margin="0,-50,0,110" Orientation="Horizontal">
+            <TextBlock TextWrapping="Wrap" Text="Team Name" Width="65" HorizontalAlignment="Left" Margin="0"/>
+            <TextBox Text="{Binding Filters}" Height="23" TextWrapping="Wrap" Width="99" Margin="0"/>
+        </StackPanel>-->
+        <TabControl Background="LightSteelBlue" Margin="0,0,0,0" SelectionChanged="TabControl_SelectionChanged" TabStripPlacement="Left">
 
-        <TextBox Grid.Row="0" Text="{Binding Path=BoundNumber, Mode=TwoWay}"></TextBox>
-        <Slider Grid.Row="1" Value="{Binding Path=BoundNumber, Mode=TwoWay}"></Slider>
-        <Button Grid.Row="2" Name="Reset" Click="Reset_Click">Reset</Button>
-        -->
-    <!--  Second Tab -->
-    <TabControl Background="{x:Null}" TabStripPlacement="Left">
+            <TabItem FontWeight="Bold" Foreground="DarkGreen" Header="MATCH STATS" Margin="0,-2,0,2">
 
-        <TabItem Header="Football Summaries" Margin="-20,-2,-31,0">
-            <Grid Margin="30,0,0,0">
-                <Custom:DataGrid x:Name="DataGrid" IsReadOnly="True" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" Background="{x:Null}" Margin="0,0,0,0">
-                    <Custom:DataGrid.Columns>
-                        <Custom:DataGridTextColumn Header="Movie Name" Binding="{Binding Path=Name}" />
-                        <Custom:DataGridTextColumn Header="Year" Binding="{Binding Path=Year}" />
-                        <Custom:DataGridTextColumn Header="Genre" Binding="{Binding Path=Genre}" />
-                        <Custom:DataGridTextColumn Header="Cast" Binding="{Binding Path=Cast}" />
-                    </Custom:DataGrid.Columns>
-                </Custom:DataGrid>
+                <Grid Margin="0,0,0,0">
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Margin" Value="0,0,0,0"/>
+                            <Setter Property="Padding" Value="13,5,5,5"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="Background" Value="Azure"/>
+                        </Style>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Margin" Value="0,0,0,0"/>
+                            <Setter Property="Padding" Value="13,5,5,5"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" Value="Blue"/>
+                            <!--<Setter Property="Background" Value="White"/>-->
+                        </Style>
+                    </Grid.Resources>
+                    <DataGrid x:Name="FootballMatchStats" IsReadOnly="True" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" Background="LightGreen">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Header="Match Date" Binding="{Binding MatchDate}" />
+                            <DataGridTextColumn Width="*" Header="Home Team" Binding="{Binding Team1}" />
+                            <DataGridTextColumn Width="*" Header="Away Team" Binding="{Binding Team2}" />
+                            <DataGridTextColumn Width="*" Header="Pitch Type" Binding="{Binding typeOfPitch}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
 
-            </Grid>
-        </TabItem>
-        <TabItem Header="ADD A MATCH" Margin="-2,-2,-31,0">
-            <Grid Background="LightGreen" Margin="29,0,1,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+                </Grid>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            </TabItem>
+            <TabItem FontWeight="Bold" Foreground="DarkGreen" Header="ADD A MATCH" Margin="0,-2,0,0">
+                <Grid Background="LightGreen" Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="27*" />
+                        <RowDefinition Height="52*" />
+                        <RowDefinition Height="52*" />
+                        <RowDefinition Height="70*" />
+                        <RowDefinition Height="52*" />
+                        <RowDefinition Height="52*" />
+                        <RowDefinition Height="52*" />
+                        <RowDefinition Height="0*" />
+                    </Grid.RowDefinitions>
 
-                <Label Content="ADD A MATCH" FontSize="15" FontWeight="Bold" Grid.Column="1" Grid.Row="0" />
-
-                <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
-                    <!-- <ListBox Width="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                        <Label Content="ADD A MATCH" FontSize="15" FontWeight="Bold" Background="CadetBlue" Grid.RowSpan="2" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+                        <!-- <ListBox Width="70">
                         <ListBoxItem>
 
                             <StackPanel>
@@ -89,143 +103,140 @@
                         <ListBoxItem Content="Team 2"/>
                     </ListBox>
                     -->
-                </StackPanel>
+                    </StackPanel>
 
-                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                    <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
 
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <Label Content="Select Teams" VerticalAlignment="Center" Width="83" Margin="0,13" />
-                        </StackPanel>
-                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Label Content="Select Teams" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
 
-                            <ComboBox x:Name="t1ComboBox" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="115"  IsEditable="True" IsReadOnly="True" Text="-- Select Team 1--" >
-                                <TextBlock Width="280" Text="Team A"/>
-                                <TextBlock Width="280" Text="Team X"/>
-                                <TextBlock Width="280" Text="Team P"/>
-                            </ComboBox>
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+                                <ComboBox x:Name="t1ComboBox" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="156" IsEditable="True" IsReadOnly="True" Text="-- Select Home Team --">
+                                    <sys:String>Team Arsenal</sys:String>
+                                    <sys:String>Team Xantos</sys:String>
+                                    <sys:String>Team Porto</sys:String>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
 
-                            <ComboBox x:Name="t2ComboBox" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="115"  IsEditable="True" IsReadOnly="True" Text="-- Select Team 1--" >
-                                <TextBlock Width="280" Text="Team B"/>
-                                <TextBlock Width="280" Text="Team Y"/>
-                                <TextBlock Width="280" Text="Team Q"/>
-                            </ComboBox>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                                <ComboBox x:Name="t2ComboBox" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="154" IsEditable="True" IsReadOnly="True" Text="-- Select Away Team --">
+                                    <sys:String>Team Bayern</sys:String>
+                                    <sys:String>Team Yale</sys:String>
+                                    <sys:String>Team Queens Rangers</sys:String>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
 
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <Label Content="Add a Team" VerticalAlignment="Center" Width="83" Margin="0,13" />
-                        </StackPanel>
-                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Label Content="New Player/Team ?" VerticalAlignment="Center" Width="124" Margin="10,13" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Button x:Name="txt" Click="AddTeam_Click" Height="30" Width="100" Content="Add a Team" />
 
-                            
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-                    <Grid Width="289">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                    <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+                        <Grid Width="289">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <!--<ColumnDefinition Width="*" />-->
 
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <Label Content="Date &amp; Time" VerticalAlignment="Center" Width="83" Margin="0,13" />
-                        </StackPanel>
-                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <DatePicker Height="42" Name="matchDate" Margin="0,10,0,0" VerticalAlignment="Top" Width="87"/>
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
-                            <TextBox Name="matchTempTime" Text = "Time" VerticalAlignment = "Center" Width = "200"></TextBox>
-                        </StackPanel>
-                    </Grid>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Label Content="Match Day" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <DatePicker Height="70" x:Name="matchDate" Margin="-50,0,0,0" VerticalAlignment="Top" Width="123" />
+                            </StackPanel>
+                            <!--<StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+                                        <TextBox Name="matchTempTime" Text = "Time" VerticalAlignment = "Center" Width = "200"></TextBox>
+                                    </StackPanel>-->
+                        </Grid>
 
-                </StackPanel>
+                    </StackPanel>
 
-                <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                    <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
 
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
-                        </StackPanel>
-                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Label Content="Pitch Type" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
 
-                            <ComboBox x:Name="comboBoxpitch" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="--   Select pitch type   --" >
-                                        <TextBlock Width="280" Text="Full Pitch"/>
-                                        <TextBlock Width="280" Text="Half Pitch"/>
-                                        <TextBlock Width="280" Text="Professional Pitch"/>
-                            </ComboBox>
+                                <ComboBox x:Name="comboBoxpitch" Height="26" Margin="0,13,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="True" Text="--   Select pitch type   --">
+                                    <sys:String>Full Pitch</sys:String>
+                                    <sys:String>Half Pitch</sys:String>
+                                    <sys:String>Professional Pitch</sys:String>
+                                </ComboBox>
 
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal" />
+                        </Grid>
+                    </StackPanel>
 
-                            
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Label Content="Add Referee" VerticalAlignment="Center" Width="85" Margin="0,13" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <TextBox x:Name="refereeName" Text="Enter Name" VerticalAlignment="Center" Width="200" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Label Content="" VerticalAlignment="Center" Width="83" Margin="0,13" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Button Grid.Column="1" Click="Match_Save_Click" Height="35" Width="110" FontWeight="DemiBold" Content="SAVE MATCH" />
 
-                <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <Label Content="Add a Referee" VerticalAlignment="Center" Width="83" Margin="0,13" />
-                        </StackPanel>
-                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
+                </Grid>
+            </TabItem>
+            <!--                     <TabItem FontWeight="Bold" Foreground="DarkGreen" Header="TEAMS" Margin="0,-2,0,0">
+    <Grid  Margin="0,0,0,0"></Grid>
+                    </TabItem> -->
 
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <Label Content="" VerticalAlignment="Center" Width="83" Margin="0,13" />
-                        </StackPanel>
-                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
-                            <Button Grid.Column="1" Click="Match_Save_Click" Height= "40" Width="110"
-                         FontWeight="DemiBold"
-                        Content="SAVE MATCH" />
+        </TabControl>
 
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-
-            </Grid>
-        </TabItem>
-    </TabControl>
-
-    <!-- Advanced Layout
+        <!-- Advanced Layout
     <Grid Background = "LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height = "*" />
@@ -285,5 +296,5 @@
         </StackPanel>
 
     </Grid> -->
-
+    </StackPanel>
 </Window>
